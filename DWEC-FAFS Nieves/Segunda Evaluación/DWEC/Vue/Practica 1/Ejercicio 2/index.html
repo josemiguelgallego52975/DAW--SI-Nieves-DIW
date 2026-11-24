@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practica 1 Ejercicio 2</title>
+  <style>
+    body {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1.5rem;
+      background-color: lightpink;
+    }
+  </style>
+</head>
+<body>
+
+  <template id="plantilla-tarjeta">
+    <style>
+      .tarjeta {
+        background-color: beige;
+        border: 3px solid brown;
+        border-radius: 10px;
+        padding: 16px;
+        width: 260px;
+      }
+
+      .cabecera {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #0f172a;
+      }
+
+      .rol {
+        border:2px solid  brown;
+        background-color: beige;
+        color: black;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 999px;
+      }
+
+      .rol:empty {
+        display: none;
+      }
+
+      .email {
+        margin: 0;
+        font-size: 0.9rem;
+        color: grey;
+      }
+    </style>
+
+    <div class="tarjeta">
+      <div class="cabecera">
+        <h3><slot name="nombre">Sin nombre</slot></h3>
+        <span class="rol"></span>
+      </div>
+      <p class="email"><slot name="email">Sin correo</slot></p>
+    </div>
+  </template>
+
+  <tarjeta-usuario rol="Profesor">
+    <span slot="nombre">Jose Claveria</span>
+    <span slot="email">joseclaveria@gmail.com</span>
+  </tarjeta-usuario>
+
+  <tarjeta-usuario rol="Alumno">
+    <span slot="nombre">Joxu Joxu</span>
+  </tarjeta-usuario>
+
+
+  <tarjeta-usuario rol="Alumno">
+    <span slot="nombre">Ibai Jimenez</span>
+    <span slot="email">ibaijimenez@gmail.com</span>
+  </tarjeta-usuario>
+
+  <script src="script.js"></script>
+</body>
+</html>
